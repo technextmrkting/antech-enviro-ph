@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Industries — Antech-Enviro Phils., Inc.</title>
+<meta name="description" content="Semiconductor, EMS, automotive, aerospace, medical, industrial, R&D, and test & measurement — industries Antech-Enviro Phils., Inc. serves across the Philippines." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ===== ANIMATIONS ===== */
+.cursor-glow{position:fixed;top:0;left:0;width:540px;height:540px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(70,227,196,.12),rgba(56,189,248,.04) 40%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .4s;mix-blend-mode:screen;opacity:0;}
+body.cursor-ready .cursor-glow{opacity:1;}@media(hover:none){.cursor-glow{display:none;}}
+.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:200;transition:width .1s linear;box-shadow:0 0 12px var(--accent);}
+.btn{position:relative;overflow:hidden;}.btn::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:left .6s;}.btn:hover::before{left:100%;}
+.nav-cta{position:relative;overflow:hidden;}.nav-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:translateX(-100%);transition:transform .5s;}.nav-cta:hover::before{transform:translateX(100%);}
+.nav-links a{position:relative;}.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--accent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.8,.2,1);}.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}.nav-links a.active{color:var(--text);}
+.reveal-child{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);}
+.reveal-group.in .reveal-child{opacity:1;transform:none;}
+.reveal-group.in .reveal-child:nth-child(1){transition-delay:.05s;}.reveal-group.in .reveal-child:nth-child(2){transition-delay:.12s;}.reveal-group.in .reveal-child:nth-child(3){transition-delay:.19s;}.reveal-group.in .reveal-child:nth-child(4){transition-delay:.26s;}.reveal-group.in .reveal-child:nth-child(5){transition-delay:.33s;}.reveal-group.in .reveal-child:nth-child(6){transition-delay:.40s;}.reveal-group.in .reveal-child:nth-child(7){transition-delay:.47s;}.reveal-group.in .reveal-child:nth-child(8){transition-delay:.54s;}
+.kicker::before{animation:kickerGrow 1.2s cubic-bezier(.2,.8,.2,1);}@keyframes kickerGrow{from{width:0;}to{width:20px;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important;}}
+
+/* ===== VARIABLES ===== */
+:root{--bg:#05090f;--bg-2:#080d17;--panel:#0b121d;--panel-2:#0f1724;--border:#172336;--border-soft:#101a29;--text:#e6edf7;--muted:#8a97ad;--dim:#4a5771;--accent:#46e3c4;--accent-2:#38bdf8;--accent-3:#ffb84d;--accent-soft:rgba(70,227,196,.14);--grid-line:rgba(70,227,196,.05);--particle:rgba(70,227,196,.6);--particle-link:rgba(70,227,196,.15);}
+html[data-theme="light"]{--bg:#f5f7fb;--bg-2:#eef2f8;--panel:#ffffff;--panel-2:#f7f9fc;--border:#d9e0ec;--border-soft:#e6ebf3;--text:#0b1628;--muted:#5b6a82;--dim:#94a2b8;--accent:#0f9d7b;--accent-2:#1e7fd4;--accent-3:#d97706;--accent-soft:rgba(15,157,123,.12);--grid-line:rgba(15,157,123,.08);--particle:rgba(15,157,123,.55);--particle-link:rgba(15,157,123,.18);}
+html{transition:background-color .5s;}body{transition:background-color .5s,color .5s;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;font-size:17px;}
+body{font-family:'Manrope',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}button{font-family:inherit;cursor:pointer;}::selection{background:var(--accent);color:#03120e;}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(14px);background:rgba(5,9,15,.72);border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
+.nav.scrolled{border-color:var(--border);background:rgba(5,9,15,.88);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:flex;align-items:center;gap:12px;}.brand-logo{display:block;height:38px;width:auto;transition:opacity .3s ease;}.brand-logo-day{display:none;}
+html[data-theme="light"] .brand-logo-night{display:none;}html[data-theme="light"] .brand-logo-day{display:block;}.footer .brand-logo{height:42px;}
+.nav-inner>.nav-cta{order:3;}.nav-inner>.theme-toggle{order:4;margin-left:6px;}
+.nav-links{display:flex;gap:28px;align-items:center;font-size:.88rem;font-weight:500;color:var(--muted);}.nav-links a{transition:color .2s;}.nav-links a:hover{color:var(--text);}
+.nav-cta{padding:9px 18px;border-radius:8px;background:var(--accent);color:#03120e;font-weight:600;font-size:.85rem;transition:transform .2s,box-shadow .2s;border:1px solid transparent;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(70,227,196,.28);}
+.menu-btn{display:none;background:none;border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text);}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);cursor:pointer;transition:background .2s,border-color .2s;}
+.theme-toggle:hover{background:rgba(255,255,255,.08);border-color:#2a3a55;}.theme-toggle svg{width:18px;height:18px;}
+
+/* ===== BACKGROUNDS ===== */
+.bg-wash{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(ellipse 80% 50% at 50% -10%,var(--accent-soft),transparent 60%),radial-gradient(ellipse 60% 40% at 90% 30%,rgba(56,189,248,.05),transparent 60%);}
+.bg-wash::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 85%);opacity:.7;animation:gridPan 40s linear infinite;}
+@keyframes gridPan{to{background-position:56px 56px,56px 56px;}}
+.bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;}
+.bg-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.22;animation:orbDrift 28s ease-in-out infinite;}
+.bg-orb.o1{width:540px;height:540px;background:var(--accent);top:-12%;left:-8%;}.bg-orb.o2{width:480px;height:480px;background:var(--accent-2);top:35%;right:-10%;animation-delay:-9s;}.bg-orb.o3{width:420px;height:420px;background:var(--accent-3);bottom:-10%;left:30%;animation-delay:-18s;opacity:.14;}
+@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(60px,40px) scale(1.08);}66%{transform:translate(-40px,60px) scale(.94);}}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:1;}.wrap{max-width:1280px;margin:0 auto;padding:0 32px;}.section{padding:100px 32px;position:relative;}
+.section-head{max-width:720px;margin-bottom:64px;}
+.kicker{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:18px;padding-left:28px;position:relative;}
+.kicker::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:20px;height:1px;background:var(--accent);}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-.025em;line-height:1.1;margin-bottom:20px;}
+.section-lead{font-size:1.08rem;color:var(--muted);max-width:680px;line-height:1.65;}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:10px;font-weight:600;font-size:.92rem;border:1px solid transparent;transition:all .25s;}
+.btn-primary{background:var(--accent);color:#03120e;}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(70,227,196,.3);}
+.btn-ghost{background:rgba(255,255,255,.03);border-color:var(--border);color:var(--text);}.btn-ghost:hover{background:rgba(255,255,255,.06);border-color:#2a3a55;}
+.btn svg{width:16px;height:16px;}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.4,0,.2,1);}.reveal.in{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}.reveal-left.in{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}.reveal-right.in{opacity:1;transform:none;}
+
+/* ===== FOOTER ===== */
+.footer{border-top:1px solid var(--border);background:var(--bg-2);padding:64px 32px 32px;position:relative;z-index:1;}.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);margin-bottom:28px;}
+.footer-brand p{color:var(--muted);font-size:.95rem;line-height:1.6;margin-top:16px;max-width:340px;}
+.footer-col h5{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;font-weight:500;}
+.footer-col a{display:block;color:var(--muted);font-size:.9rem;padding:6px 0;transition:color .2s,padding-left .2s;position:relative;}
+.footer-col a::before{content:"→";position:absolute;left:-16px;opacity:0;color:var(--accent);transition:opacity .2s,left .2s;}
+.footer-col a:hover{padding-left:14px;color:var(--accent);}.footer-col a:hover::before{opacity:1;left:0;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--dim);flex-wrap:wrap;gap:14px;}
+.powered{display:inline-flex;align-items:center;gap:8px;color:var(--muted);}.powered a{color:var(--accent);font-weight:600;transition:color .2s;border-bottom:1px dashed rgba(70,227,196,.3);padding-bottom:1px;}.powered a:hover{color:var(--text);border-color:var(--text);}
+
+/* ===== PAGE HERO ===== */
+.page-hero{padding:160px 32px 100px;position:relative;}.page-hero-inner{max-width:820px;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:100px;background:var(--accent-soft);border:1px solid rgba(70,227,196,.24);font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:28px;}
+.page-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:dotpulse 1.8s ease-in-out infinite;}
+@keyframes dotpulse{50%{opacity:.35;}}
+.page-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:600;letter-spacing:-.025em;line-height:1.06;margin-bottom:24px;}
+.page-title em{font-style:normal;background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.page-lead{font-size:1.12rem;color:var(--muted);max-width:640px;line-height:1.65;margin-bottom:36px;}
+.page-cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+
+/* ===== INDUSTRY CARDS ===== */
+.ind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.ind-card{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;padding:32px;border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border);overflow:hidden;position:relative;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s;}
+.ind-card:hover{transform:translateY(-4px);border-color:#253a57;}
+.ind-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(70,227,196,.08),rgba(56,189,248,.05));opacity:0;transition:opacity .3s;}
+.ind-card:hover::before{opacity:1;}
+.ind-card>*{position:relative;z-index:1;}
+.ind-icon-wrap{width:52px;height:52px;border-radius:14px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);display:grid;place-items:center;color:var(--accent-2);flex-shrink:0;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .3s,color .3s;}
+.ind-card:hover .ind-icon-wrap{transform:scale(1.1) rotate(-6deg);background:var(--accent-2);color:#03120e;}
+.ind-icon-wrap svg{width:24px;height:24px;}
+.ind-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:8px;letter-spacing:-.01em;}
+.ind-body p{color:var(--muted);font-size:.95rem;line-height:1.6;margin-bottom:16px;}
+.ind-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.ind-tag{font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,.03);color:var(--muted);border:1px solid var(--border);}
+
+/* ===== CTA BAND ===== */
+.cta-band{padding:100px 32px;}.cta-inner{max-width:760px;margin:0 auto;text-align:center;}
+.cta-inner h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-.02em;margin-bottom:18px;}
+.cta-inner p{color:var(--muted);font-size:1.05rem;line-height:1.65;margin-bottom:32px;}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){.ind-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:720px){.nav-links{display:none;}.menu-btn{display:inline-flex;}.nav-cta{display:none;}.section{padding:80px 24px;}.page-hero{padding:120px 24px 80px;}.cta-band{padding:80px 24px;}.wrap{padding:0 24px;}.footer-top{grid-template-columns:1fr;}.ind-card{grid-template-columns:1fr;gap:16px;}}
+
+/* ===== LIGHT MODE ===== */
+html[data-theme="light"] .nav{background:rgba(255,255,255,.78);}html[data-theme="light"] .nav.scrolled{background:rgba(255,255,255,.94);box-shadow:0 4px 24px -12px rgba(15,30,60,.15);}
+html[data-theme="light"] .nav-links{color:#4a5771;}html[data-theme="light"] .bg-orb{opacity:.14;filter:blur(110px);}html[data-theme="light"] .bg-orb.o3{opacity:.08;}
+html[data-theme="light"] .btn-ghost{background:rgba(15,30,60,.04);color:var(--text);}html[data-theme="light"] .btn-ghost:hover{background:rgba(15,30,60,.08);border-color:#b8c3d4;}
+html[data-theme="light"] .ind-card{box-shadow:0 2px 20px -10px rgba(15,30,60,.1);}html[data-theme="light"] .ind-icon-wrap{background:rgba(30,127,212,.1);border-color:rgba(30,127,212,.25);}
+html[data-theme="light"] .page-eyebrow{background:rgba(15,157,123,.08);border-color:rgba(15,157,123,.25);}
+html[data-theme="light"] .footer{background:linear-gradient(180deg,#eef2f8,#e4ebf4);}html[data-theme="light"] .footer-col h5{color:var(--text);}html[data-theme="light"] .footer-col a{color:var(--muted);}html[data-theme="light"] .footer-bottom{color:var(--muted);}
+html[data-theme="light"] .nav-cta{color:#fff;}html[data-theme="light"] .btn-primary{color:#fff;}
+
+/* ===== INTERACTIVE MOTION ===== */
+@property --ba{syntax:'<angle>';initial-value:0deg;inherits:false;}
+@keyframes spinBorder{to{--ba:360deg;}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 1px rgba(70,227,196,.18),0 16px 48px -14px rgba(70,227,196,.1);}50%{box-shadow:0 0 0 1px rgba(70,227,196,.6),0 20px 60px -8px rgba(70,227,196,.3);}}
+@keyframes tagSlide{from{opacity:0;transform:translateX(-6px);}to{opacity:1;transform:none;}}
+
+.ind-card{will-change:transform;transition:border-color .3s,box-shadow .3s;}
+.ind-card:hover{transform:none;animation:glowPulse 1.8s ease-in-out infinite;}
+
+/* Cursor-tracked spotlight */
+.ind-card::before{background:radial-gradient(circle 220px at var(--mx,50%) var(--my,0%),rgba(70,227,196,.14),rgba(56,189,248,.07) 55%,transparent 75%) !important;}
+
+/* Spinning conic border on hover */
+.ind-card:hover{border-color:transparent;background:linear-gradient(180deg,var(--panel),var(--panel-2)) padding-box,conic-gradient(from var(--ba),rgba(70,227,196,.85) 0deg,var(--accent-2) 60deg,rgba(70,227,196,.7) 120deg,transparent 200deg,rgba(70,227,196,.5) 280deg,transparent 320deg) border-box;animation:spinBorder 2.4s linear infinite,glowPulse 1.8s ease-in-out infinite;}
+html[data-theme="light"] .ind-card:hover{background:linear-gradient(180deg,#fff,#f7f9fc) padding-box,conic-gradient(from var(--ba),rgba(15,157,123,.9) 0deg,rgba(30,127,212,.6) 60deg,rgba(15,157,123,.7) 120deg,transparent 200deg,rgba(15,157,123,.5) 280deg,transparent 320deg) border-box;}
+
+/* Icon pulse ring on hover */
+.ind-icon-wrap{position:relative;}
+.ind-icon-wrap::after{content:"";position:absolute;inset:-4px;border-radius:inherit;border:2px solid rgba(70,227,196,.0);transition:all .4s cubic-bezier(.2,.8,.2,1);}
+.ind-card:hover .ind-icon-wrap::after{inset:-8px;border-color:rgba(70,227,196,.35);}
+
+/* Tag chip stagger reveal on card hover */
+.ind-tag{transition:opacity .3s,transform .3s;opacity:.75;}
+.ind-card:hover .ind-tag{opacity:1;}
+.ind-card:hover .ind-tag:nth-child(1){transition-delay:.02s;}
+.ind-card:hover .ind-tag:nth-child(2){transition-delay:.06s;}
+.ind-card:hover .ind-tag:nth-child(3){transition-delay:.10s;}
+.ind-card:hover .ind-tag:nth-child(4){transition-delay:.14s;}
+.ind-card:hover .ind-tag:nth-child(5){transition-delay:.18s;}
+</style>
+</head>
+<body>
+
+<div class="bg-wash"></div>
+<div class="bg-orbs"><div class="bg-orb o1"></div><div class="bg-orb o2"></div><div class="bg-orb o3"></div></div>
+<canvas class="bg-canvas" id="bgCanvas"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Antech-Enviro Philippines, Inc.">
+      <img src="assets/logo-night.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-night"/>
+      <img src="assets/logo-day.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-day"/>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="services.html">Services</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="industries.html" class="active">Industries</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="menu-btn" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner reveal">
+      <div class="page-eyebrow"><span class="dot"></span>04 / Industries</div>
+      <h1 class="page-title">The people <br>who build <em>what matters.</em></h1>
+      <p class="page-lead">From IDMs and OSAT facilities to automotive-grade contract manufacturers and university research labs — Antech-Enviro has worked alongside Philippine industry for over 25 years.</p>
+      <div class="page-cta-row">
+        <a href="contact.html" class="btn btn-primary">
+          Request a Quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-ghost">Our services →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES GRID -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Who we work with</div>
+      <h2 class="section-title">Eight verticals. One point of contact.</h2>
+      <p class="section-lead">Our equipment, consumables, and services show up across a wide range of industries in the Philippines — often within the same customer site.</p>
+    </div>
+
+    <div class="ind-grid reveal-group">
+
+      <!-- 1 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>Semiconductor</h3>
+          <p>IDMs, OSAT facilities, and fabless test houses across the Philippines. We supply the failure analysis instruments, bond pull testers, probe cards, and reliability test chambers that keep these operations qualified and running.</p>
+          <div class="ind-tags"><span class="ind-tag">Failure Analysis</span><span class="ind-tag">QRA</span><span class="ind-tag">Probe Cards</span><span class="ind-tag">Thermal Shock</span><span class="ind-tag">Metallography</span></div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18M8 14h2M12 14h4"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>EMS &amp; Electronics Manufacturing</h3>
+          <p>Contract manufacturers and OEM brand owners running SMT and through-hole lines. We supply PCB assembly services, rework capability, production consumables, and the board-level repair that keeps lines moving when components fail.</p>
+          <div class="ind-tags"><span class="ind-tag">SMT Assembly</span><span class="ind-tag">PCB Repair</span><span class="ind-tag">Consumables</span><span class="ind-tag">BGA Rework</span><span class="ind-tag">AOI</span></div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17h18M5 17V9l7-5 7 5v8"/><path d="M9 17v-5h6v5"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>Automotive Electronics</h3>
+          <p>Reliability qualification and failure analysis for AEC-Q100/Q200 components and assemblies. We supply the thermal shock chambers, HAST, and metallography systems that automotive-grade qualification programs require, alongside the IQ/OQ documentation auditors expect.</p>
+          <div class="ind-tags"><span class="ind-tag">AEC-Q100</span><span class="ind-tag">HAST</span><span class="ind-tag">Thermal Shock</span><span class="ind-tag">FA</span><span class="ind-tag">IQ/OQ</span></div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>Aerospace &amp; Defense</h3>
+          <p>High-reliability inspection and test for mission-critical assemblies — where MIL-STD-883 and DO-254 compliance is the baseline, not the goal. We supply the cross-sectioning systems, bond pull testers, and environmental chambers that hi-rel programs demand.</p>
+          <div class="ind-tags"><span class="ind-tag">MIL-STD-883</span><span class="ind-tag">Hi-Rel</span><span class="ind-tag">Cross-Section</span><span class="ind-tag">Wire Pull</span><span class="ind-tag">Environmental Test</span></div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2v4M18 2v4M4 8h16v12H4z"/><path d="M8 12h2M14 12h2M8 16h2M14 16h2"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>Medical Devices</h3>
+          <p>Clean-grade PCB assembly, reliability testing, and material traceability for regulated hardware. Medical device manufacturers need suppliers who understand lot documentation, material certifications, and the audit trails that ISO 13485 and FDA requirements demand.</p>
+          <div class="ind-tags"><span class="ind-tag">PCB Assembly</span><span class="ind-tag">Reliability Test</span><span class="ind-tag">Traceability</span><span class="ind-tag">ISO 13485</span><span class="ind-tag">Lot Certs</span></div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>Industrial &amp; Power Electronics</h3>
+          <p>Ruggedized electronics, power modules, variable frequency drives, and control-board repair. Industrial customers need equipment that performs at the extremes of temperature, humidity, and voltage — and service partners who can respond when production goes down.</p>
+          <div class="ind-tags"><span class="ind-tag">Power Modules</span><span class="ind-tag">Control Board Repair</span><span class="ind-tag">IGBT</span><span class="ind-tag">Environmental</span><span class="ind-tag">On-Site Service</span></div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v10H4zM2 20h20"/><path d="M8 10h4"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>R&amp;D &amp; Universities</h3>
+          <p>Materials labs, reliability research groups, and engineering programs that need analytical equipment without an enterprise procurement process. We work with academic institutions across Luzon on instrument acquisition, training, and consumable supply for ongoing research programs.</p>
+          <div class="ind-tags"><span class="ind-tag">Metallography</span><span class="ind-tag">Sample Prep</span><span class="ind-tag">Training</span><span class="ind-tag">Academic Pricing</span><span class="ind-tag">Lab Setup</span></div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="ind-card reveal-child">
+        <div class="ind-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+        </div>
+        <div class="ind-body">
+          <h3>Test &amp; Measurement</h3>
+          <p>Probe card services, cleaning consumables, and characterization support for wafer test and ATE operations. We stock the probe cleaning media, replacement tips, and field engineering capacity that high-throughput test floors depend on to maintain contact yield.</p>
+          <div class="ind-tags"><span class="ind-tag">Wafer Test</span><span class="ind-tag">Probe Cards</span><span class="ind-tag">Cleaning Media</span><span class="ind-tag">ATE Support</span><span class="ind-tag">Nidec SV Probe</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-inner reveal">
+      <div class="kicker">Work with us</div>
+      <h2>Your industry, your requirement.</h2>
+      <p>Tell us what you're building, qualifying, or trying to keep running — we'll route your inquiry to the right engineer within one business day.</p>
+      <div class="cta-row">
+        <a href="contact.html" class="btn btn-primary">
+          Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="capabilities.html" class="btn btn-ghost">Our capabilities →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand" style="pointer-events:none;">
+          <img src="assets/logo-night.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-night"/>
+          <img src="assets/logo-day.png" alt="Antech-Enviro Philippines, Inc." class="brand-logo brand-logo-day"/>
+        </div>
+        <p>Distributor and service partner to the Philippine semiconductor, electronics, and PCB industries since 1999.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="index.html#about">About</a>
+        <a href="capabilities.html">Capabilities</a>
+        <a href="industries.html">Industries</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="services.html">QRA &amp; Inspection</a>
+        <a href="services.html">PCB Design &amp; Assembly</a>
+        <a href="services.html">Consumables</a>
+        <a href="services.html">Probe Card Solutions</a>
+      </div>
+      <div class="footer-col">
+        <h5>Find us</h5>
+        <a href="tel:+63288202454">(02) 8820 2454</a>
+        <a href="mailto:info@antech-enviro.com">info@antech-enviro.com</a>
+        <a href="https://www.linkedin.com/company/antech-enviro-phils-inc-" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Antech-Enviro+Phils+Inc+Paranaque" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="yr">2026</span> Antech-Enviro Phils., Inc. All rights reserved.</div>
+      <div class="powered">Powered by <a href="https://technext.asia" target="_blank" rel="noopener">TechNext Asia</a>.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const themeToggle=document.getElementById('themeToggle');
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t);themeToggle.innerHTML=(t==='light'?MOON:SUN);try{localStorage.setItem('antech-theme',t);}catch(e){}}
+const saved=(()=>{try{return localStorage.getItem('antech-theme');}catch(e){return null;}})();
+applyTheme(saved||'dark');
+themeToggle.addEventListener('click',()=>{const c=document.documentElement.getAttribute('data-theme')||'dark';applyTheme(c==='dark'?'light':'dark');});
+(function particles(){const c=document.getElementById('bgCanvas'),ctx=c.getContext('2d');let w,h,dpr,pts=[];const N=Math.min(80,Math.max(40,Math.floor(window.innerWidth/22)));function resize(){dpr=Math.min(window.devicePixelRatio||1,2);w=c.width=window.innerWidth*dpr;h=c.height=window.innerHeight*dpr;c.style.width=window.innerWidth+'px';c.style.height=window.innerHeight+'px';}resize();window.addEventListener('resize',resize);for(let i=0;i<N;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr,r:(Math.random()*1.2+.6)*dpr});let mx=-9999,my=-9999;window.addEventListener('pointermove',e=>{mx=e.clientX*dpr;my=e.clientY*dpr;});window.addEventListener('pointerleave',()=>{mx=-9999;my=-9999;});function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}function loop(){ctx.clearRect(0,0,w,h);const pCol=css('--particle')||'rgba(70,227,196,.6)',lCol=css('--particle-link')||'rgba(70,227,196,.15)';for(let i=0;i<pts.length;i++){const p=pts[i];const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;if(d2<18000*dpr*dpr){const f=(18000*dpr*dpr-d2)/(18000*dpr*dpr);p.vx+=dx/Math.sqrt(d2+1)*f*.15;p.vy+=dy/Math.sqrt(d2+1)*f*.15;}p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.vy*=.99;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=pCol;ctx.fill();}for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy,max=140*dpr;if(d2<max*max){const o=1-Math.sqrt(d2)/max;ctx.strokeStyle=lCol.replace(/[\d.]+\)/,(o*0.6).toFixed(2)+')');ctx.lineWidth=1*dpr;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}requestAnimationFrame(loop);}loop();})();
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>12),{passive:true});nav.classList.toggle('scrolled',window.scrollY>12);
+const io=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('in',e.isIntersecting)),{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-group,.reveal-left,.reveal-right').forEach(el=>io.observe(el));
+const glow=document.getElementById('cursorGlow');let gx=window.innerWidth/2,gy=window.innerHeight/2,tgx=gx,tgy=gy;
+window.addEventListener('pointermove',e=>{tgx=e.clientX;tgy=e.clientY;if(!document.body.classList.contains('cursor-ready'))document.body.classList.add('cursor-ready');});
+(function lg(){gx+=(tgx-gx)*.12;gy+=(tgy-gy)*.12;glow.style.transform=`translate(${gx}px,${gy}px) translate(-50%,-50%)`;requestAnimationFrame(lg);})();
+const scrollBar=document.getElementById('scrollBar');window.addEventListener('scroll',()=>{const h=document.documentElement;scrollBar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+document.querySelectorAll('.btn,.nav-cta').forEach(btn=>{let x=0,y=0,tx=0,ty=0;btn.addEventListener('pointermove',e=>{const r=btn.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5)*10;ty=((e.clientY-r.top)/r.height-.5)*10;});btn.addEventListener('pointerleave',()=>{tx=0;ty=0;});(function l(){x+=(tx-x)*.18;y+=(ty-y)*.18;btn.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(l);})();});
+// 3D Tilt + Cursor Spotlight
+(function tilt(){document.querySelectorAll('.ind-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;const rx=((y/r.height)-.5)*12,ry=(.5-(x/r.width))*12;card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-5px)`;card.style.setProperty('--mx',(x/r.width*100)+'%');card.style.setProperty('--my',(y/r.height*100)+'%');});card.addEventListener('pointerleave',()=>{card.style.transform='';});});})();
+// Text Scramble on headings
+(function scramble(){const G='01アイウエ!@#ΔΩ§';function run(el){const orig=el.dataset.orig||(el.dataset.orig=el.textContent);let f=0,tot=(orig.length*2.4)|0;const iv=setInterval(()=>{el.textContent=orig.split('').map((c,i)=>{if(c===' '||c==='\n')return c;return i<=f/2.4?orig[i]:G[Math.random()*G.length|0];}).join('');if(f++>tot){el.textContent=orig;clearInterval(iv);}},22);}const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){ob.unobserve(e.target);setTimeout(()=>run(e.target),150);}}),{threshold:.4});document.querySelectorAll('.section-title,.page-title').forEach(el=>ob.observe(el));})();
+// Click Particle Burst
+(function burst(){function fire(x,y){for(let i=0;i<14;i++){const p=document.createElement('span');const a=(Math.PI*2*i/14)+Math.random()*.3,d=32+Math.random()*52,s=3+Math.random()*3;p.style.cssText=`position:fixed;left:${x}px;top:${y}px;width:${s}px;height:${s}px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s;`;document.body.appendChild(p);requestAnimationFrame(()=>requestAnimationFrame(()=>{p.style.transform=`translate(calc(-50% + ${Math.cos(a)*d}px),calc(-50% + ${Math.sin(a)*d}px)) scale(.2)`;p.style.opacity='0';}));setTimeout(()=>p.remove(),680);}}document.querySelectorAll('.btn-primary,.nav-cta').forEach(b=>b.addEventListener('pointerdown',e=>fire(e.clientX,e.clientY)));})();
+</script>
+</body>
+</html>
