@@ -1273,7 +1273,7 @@
     .stats-wrap{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr;}
     .hero-metrics{grid-template-columns:1fr 1fr;row-gap:20px;}
-    .metric{padding:0;border:none !important;}
+    .metric,.metric:nth-child(2),.metric:last-child{padding:0;border:none !important;}
     .wrap{padding:0 24px;}
     .form-row{grid-template-columns:1fr;}
 
@@ -1305,12 +1305,14 @@
   }
   @media(max-width:480px){
     .hero h1{font-size:2rem;}
+    .hero-lead{font-size:1rem;max-width:100%;}
     .hero-metrics{grid-template-columns:1fr;}
+    .metric,.metric:nth-child(2),.metric:last-child{padding:0;border:none !important;}
     .industries{grid-template-columns:1fr;}
     .stats-wrap{grid-template-columns:1fr 1fr;}
     .hero-visual{display:none;}
-    .cta-row{flex-direction:column;align-items:stretch;}
-    .cta-row .btn-primary,.cta-row .btn-ghost{text-align:center;justify-content:center;}
+    .hero-cta-row{flex-direction:column;align-items:stretch;}
+    .hero-cta-row .btn{text-align:center;justify-content:center;width:100%;}
     .section-head h2{font-size:1.6rem;}
     .services-grid{grid-template-columns:1fr;}
     .wrap{padding:0 16px;}
