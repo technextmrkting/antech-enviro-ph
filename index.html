@@ -20,7 +20,37 @@
     opacity:0;
   }
   body.cursor-ready .cursor-glow{opacity:1;}
-  @media (hover:none){.cursor-glow{display:none;}}
+  @media(hover:none){
+  .cursor-glow{display:none;}
+  /* Stop all looping ambient animations on touch devices */
+  .ind-icon{animation:none;}
+  .flow-arrow{animation:none;color:var(--accent);opacity:.5;}
+  .pad{animation:none;}
+  .bg-orb{animation:none !important;}
+  .hero-eyebrow .dot{animation:none;opacity:1;}
+  .kicker::before{animation:none;width:20px;}
+  /* Disable spinning conic border & glow on all card hover states */
+  .svc-panel:hover,.diff-card:hover,.ind-card:hover,.info-card:hover,.flow-node.active{
+    animation:none !important;
+    border-color:var(--border) !important;
+    background:var(--panel) !important;
+    box-shadow:none !important;
+    transform:none !important;
+  }
+  /* Disable card icon rotate on hover */
+  .svc:hover .svc-icon,.diff-card:hover .diff-icon,.ind-card:hover .ind-icon-wrap,.info-card:hover .info-card-icon{
+    transform:none !important;
+    background:var(--accent-soft) !important;
+    color:var(--accent) !important;
+  }
+  /* Disable button hover transforms */
+  .btn:hover,.nav-cta:hover,.flow-play-btn:hover{
+    transform:none !important;
+  }
+  /* Disable feat-check hover spin */
+  .feat-item:hover .feat-check{transform:none !important;}
+  /* Keep entry/reveal animations (one-shot, not looping) */
+}
 
   /* ============ SCROLL PROGRESS ============ */
   .scroll-bar{
